@@ -1,5 +1,16 @@
 ---
 
+const tituloPagina = "Sobre mí";
+
+const identidad = {
+    nombre: "Alberto González",
+    pais: "España",
+    ocupacion: "Desarrollador web",
+    hobbies: ["Ver series y peliculas de la segunda guerra mundial", "Hacer deporte", "Probar comidas diferentes"]
+}
+
+const stack = ["HTML", "CSS", "Bootstrap", "Sass", "JavaScript", "React", "Astro", "Java", "Spring", "SpringBoot", "mySql"];
+
 ---
 
 <html lang="es">
@@ -9,21 +20,35 @@
         <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
         <meta name="viewport" content="width=device-width" />
         <meta name="generator" content={Astro.generator} />
-        <title>Astro</title>
+        <title>{tituloPagina}</title>
     </head>
 
     <body>
-
         <a href="/">Inicio</a>
         <a href="/about/">Sobre mi</a>
         <a href="/blog/">Blog</a>
 
-        <h1>Alberto González</h1>
+        <h1>{tituloPagina}</h1>
 
-        <h3>Desarrollador web</h3>
+        <ul>
+            <li>Me llamo {identidad.nombre}</li>
+            <li>Vivo en {identidad.pais}</li>
+            <li>Trabajo como {identidad.pais}</li>
 
-        <h4>Stack Tecnológico:</h4>
+            {identidad.hobbies.length >= 2 && 
+                <li>Dos de mis aficiones son: {identidad.hobbies[0]} y {identidad.hobbies[1]}</li>
+            }
 
-        <p>HTML, CSS, Bootstrap 5, Sass, JavaScript, React, Java, Spring, SpringBoot, mySql</p>
-        
+        </ul>
+
+        <h4>Mi Stack Tecnológico es:</h4>
+
+        <ul>
+            {stack.map( (stack) => <li>{stack}</li>)}
+        </ul>
+
+
+
+    </body>
+
 </html>
